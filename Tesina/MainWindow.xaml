@@ -1,0 +1,66 @@
+﻿<Window x:Class="Tesina.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013"
+		xmlns:local="clr-namespace:Tesina"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="950">
+	<Grid>
+        <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="kinectChooser" >
+
+        </k:KinectSensorChooserUI>
+
+        <Label x:Name="KinectStatus" Content="Current Kinect Status" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="25" />
+
+        <TextBlock x:Name="LeftWristToShoulder" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Left Wrist to Shoulder" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="XValueLeftWristToShoulder" HorizontalAlignment="Left" Margin="40,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="XLeftWristToShoulder" HorizontalAlignment="Left" Margin="10,45,0,0" TextWrapping="Wrap" Text="X:" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="YValueLeftWristToShoulder" HorizontalAlignment="Left" Margin="40,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="YLeftWristToShoulder" HorizontalAlignment="Left" Margin="10,80,0,0" TextWrapping="Wrap" Text="Y:" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="ZValueLeftWristToShoulder" HorizontalAlignment="Left" Margin="40,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-2.933,3.159" FontSize="30"/>
+        <TextBlock x:Name="ZLeftWristToShoulder" HorizontalAlignment="Left" Margin="10,115,0,0" TextWrapping="Wrap" Text="Z:" VerticalAlignment="Top" RenderTransformOrigin="0.165,0.661" FontSize="30"/>
+
+        <TextBlock x:Name="LeftWristToHip" HorizontalAlignment="Left" Margin="10,160,0,0" TextWrapping="Wrap" Text="Left Wrist to Hip" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="XValueLeftWristToHip" HorizontalAlignment="Left" Margin="40,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="XLeftWristToHip" HorizontalAlignment="Left" Margin="10,195,0,0" TextWrapping="Wrap" Text="X:" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="YValueLeftWristToHip" HorizontalAlignment="Left" Margin="40,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="YLeftWristToHip" HorizontalAlignment="Left" Margin="10,230,0,0" TextWrapping="Wrap" Text="Y:" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="ZValueLeftWristToHip" HorizontalAlignment="Left" Margin="40,265,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-2.933,3.159" FontSize="30"/>
+        <TextBlock x:Name="ZLeftWristToHip" HorizontalAlignment="Left" Margin="10,265,0,0" TextWrapping="Wrap" Text="Z:" VerticalAlignment="Top" RenderTransformOrigin="0.165,0.661" FontSize="30"/>
+
+        <TextBlock x:Name="RightWristToShoulder" HorizontalAlignment="Left" Margin="315,10,0,0" TextWrapping="Wrap" Text="Right Wrist to Shoulder" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="XValueRightWristToShoulder" HorizontalAlignment="Left" Margin="345,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="XRightWristToShoulder" HorizontalAlignment="Left" Margin="315,45,0,0" TextWrapping="Wrap" Text="X:" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="YValueRightWristToShoulder" HorizontalAlignment="Left" Margin="345,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="YRightWristToShoulder" HorizontalAlignment="Left" Margin="315,80,0,0" TextWrapping="Wrap" Text="Y:" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="ZValueRightWristToShoulder" HorizontalAlignment="Left" Margin="345,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-2.933,3.159" FontSize="30"/>
+        <TextBlock x:Name="ZRightWristToShoulder" HorizontalAlignment="Left" Margin="315,115,0,0" TextWrapping="Wrap" Text="Z:" VerticalAlignment="Top" RenderTransformOrigin="0.165,0.661" FontSize="30"/>
+
+        <TextBlock x:Name="RightWristToHip" HorizontalAlignment="Left" Margin="315,160,0,0" TextWrapping="Wrap" Text="Right Wrist to Hip" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="XValueRightWristToHip" HorizontalAlignment="Left" Margin="345,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="XRightWristToHip" HorizontalAlignment="Left" Margin="315,195,0,0" TextWrapping="Wrap" Text="X:" VerticalAlignment="Top" FontSize="30" RenderTransformOrigin="5.131,2.168"/>
+        <TextBlock x:Name="YValueRightWristToHip" HorizontalAlignment="Left" Margin="345,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="YRightWristToHip" HorizontalAlignment="Left" Margin="315,230,0,0" TextWrapping="Wrap" Text="Y:" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="ZValueRightWristToHip" HorizontalAlignment="Left" Margin="345,265,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-2.933,3.159" FontSize="30"/>
+        <TextBlock x:Name="ZRightWristToHip" HorizontalAlignment="Left" Margin="315,265,0,0" TextWrapping="Wrap" Text="Z:" VerticalAlignment="Top" RenderTransformOrigin="0.165,0.661" FontSize="30"/>
+
+        <TextBlock x:Name="LeftAnkleToHip" HorizontalAlignment="Left" Margin="640,10,0,0" TextWrapping="Wrap" Text="Left Ankle to Hip" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="XValueLeftAnkleToHip" HorizontalAlignment="Left" Margin="670,45,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="XLeftAnkleToHip" HorizontalAlignment="Left" Margin="640,45,0,0" TextWrapping="Wrap" Text="X:" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="YValueLeftAnkleToHip" HorizontalAlignment="Left" Margin="670,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="YLeftAnkleToHip" HorizontalAlignment="Left" Margin="640,80,0,0" TextWrapping="Wrap" Text="Y:" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="ZValueLeftAnkleToHip" HorizontalAlignment="Left" Margin="670,115,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-2.933,3.159" FontSize="30"/>
+        <TextBlock x:Name="ZLeftAnkleToHip" HorizontalAlignment="Left" Margin="640,115,0,0" TextWrapping="Wrap" Text="Z:" VerticalAlignment="Top" RenderTransformOrigin="0.165,0.661" FontSize="30"/>
+
+        <TextBlock x:Name="RightAnkleToHip" HorizontalAlignment="Left" Margin="640,160,0,0" TextWrapping="Wrap" Text="Right Ankle to Hip" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="XValueRightAnkleToHip" HorizontalAlignment="Left" Margin="670,195,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="XRightAnkleToHip" HorizontalAlignment="Left" Margin="640,195,0,0" TextWrapping="Wrap" Text="X:" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="YValueRightAnkleToHip" HorizontalAlignment="Left" Margin="670,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="YRightAnkleToHip" HorizontalAlignment="Left" Margin="640,230,0,0" TextWrapping="Wrap" Text="Y:" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="ZValueRightAnkleToHip" HorizontalAlignment="Left" Margin="670,265,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" RenderTransformOrigin="-2.933,3.159" FontSize="30"/>
+        <TextBlock x:Name="ZRightAnkleToHip" HorizontalAlignment="Left" Margin="640,265,0,0" TextWrapping="Wrap" Text="Z:" VerticalAlignment="Top" RenderTransformOrigin="0.165,0.661" FontSize="30"/>
+
+    </Grid>
+</Window>
