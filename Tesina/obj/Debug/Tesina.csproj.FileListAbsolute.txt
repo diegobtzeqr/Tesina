@@ -19,3 +19,5 @@ C:\Users\Diego Be\source\repos\Tesina\Tesina\obj\Debug\Tesina.csproj.CoreCompile
 C:\Users\Diego Be\source\repos\Tesina\Tesina\obj\Debug\Tesina.csproj.CopyComplete
 C:\Users\Diego Be\source\repos\Tesina\Tesina\obj\Debug\Tesina.exe
 C:\Users\Diego Be\source\repos\Tesina\Tesina\obj\Debug\Tesina.pdb
+C:\Users\Diego Be\source\repos\Tesina\Tesina\obj\Debug\Interop.WMPLib.dll
+C:\Users\Diego Be\source\repos\Tesina\Tesina\obj\Debug\Tesina.csproj.ResolveComReference.cache
