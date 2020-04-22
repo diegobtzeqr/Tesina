@@ -12,6 +12,8 @@ namespace Tesina
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static string currDir = AppDomain.CurrentDomain.BaseDirectory;
+
         private KinectSensor sensor;
         private MediaPlayer nt1 = new MediaPlayer();
         private MediaPlayer nt2 = new MediaPlayer();
@@ -60,53 +62,6 @@ namespace Tesina
         private MediaPlayer nt45 = new MediaPlayer();
         private MediaPlayer nt46 = new MediaPlayer();
         private MediaPlayer nt47 = new MediaPlayer();
-        private Uri nt1Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a49.wav");
-        private Uri nt2Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b49.wav");
-        private Uri nt3Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a50.wav");
-        private Uri nt4Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b50.wav");
-        private Uri nt5Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a51.wav");
-        private Uri nt6Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a52.wav");
-        private Uri nt7Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b52.wav");
-        private Uri nt8Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a53.wav");
-        private Uri nt9Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b53.wav");
-        private Uri nt10Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a54.wav");
-        private Uri nt11Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b54.wav");
-        private Uri nt12Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a55.wav");
-        private Uri nt13Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a56.wav");
-        private Uri nt14Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b56.wav");
-        private Uri nt15Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a57.wav");
-        private Uri nt16Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a48.wav");
-        private Uri nt17Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a81.wav");
-        private Uri nt18Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b81.wav");
-        private Uri nt19Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a87.wav");
-        private Uri nt20Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b87.wav");
-        private Uri nt21Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a69.wav");
-        private Uri nt22Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b69.wav");
-        private Uri nt23Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a82.wav");
-        private Uri nt24Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a84.wav");
-        private Uri nt25Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b84.wav");
-        private Uri nt26Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a89.wav");
-        private Uri nt27Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b89.wav");
-        private Uri nt28Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a85.wav");
-        private Uri nt29Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a73.wav");
-        private Uri nt30Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b73.wav");
-        private Uri nt31Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a79.wav");
-        private Uri nt32Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b79.wav");
-        private Uri nt33Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a80.wav");
-        private Uri nt34Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b80.wav");
-        private Uri nt35Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a65.wav");
-        private Uri nt36Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a83.wav");
-        private Uri nt37Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b83.wav");
-        private Uri nt38Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a68.wav");
-        private Uri nt39Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b68.wav");
-        private Uri nt40Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a70.wav");
-        private Uri nt41Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a71.wav");
-        private Uri nt42Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b71.wav");
-        private Uri nt43Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a72.wav");
-        private Uri nt44Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b72.wav");
-        private Uri nt45Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a74.wav");
-        private Uri nt46Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\b74.wav");
-        private Uri nt47Uri = new Uri(@"C:\Users\Diego Be\source\repos\Tesina\Tesina\sounds\a75.wav");
         private bool nt1finished = true;
         private bool nt2finished = true;
         private bool nt3finished = true;
@@ -248,7 +203,7 @@ namespace Tesina
                     nt47Finished = false;
                     this.Dispatcher.Invoke(() =>
                     {
-                        nt47.Open(nt47Uri);
+                        nt47.Open(new Uri(currDir + @"..\..\sounds\a75.wav"));
                         nt47.Play();
                         nt47.MediaEnded += delegate { nt47Finished = true; };
                     });
@@ -261,7 +216,7 @@ namespace Tesina
                     nt13finished = false;
                     this.Dispatcher.Invoke(() =>
                     {
-                        nt13.Open(nt13Uri);
+                        nt13.Open(new Uri(currDir + @"..\..\sounds\a56.wav"));
                         nt13.Play();
                         nt13.MediaEnded += delegate { nt13finished = true; };
                     });
@@ -294,7 +249,7 @@ namespace Tesina
                             nt46Finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt46.Open(nt46Uri);
+                                nt46.Open(new Uri(currDir + @"..\..\sounds\b74.wav"));
                                 nt46.Play();
                                 nt46.MediaEnded += delegate { nt46Finished = true; };
                             });
@@ -307,7 +262,7 @@ namespace Tesina
                             nt44finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt44.Open(nt44Uri);
+                                nt44.Open(new Uri(currDir + @"..\..\sounds\b72.wav"));
                                 nt44.Play();
                                 nt44.MediaEnded += delegate { nt44finished = true; };
                             });
@@ -320,7 +275,7 @@ namespace Tesina
                             nt42finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt42.Open(nt42Uri);
+                                nt42.Open(new Uri(currDir + @"..\..\sounds\b71.wav"));
                                 nt42.Play();
                                 nt42.MediaEnded += delegate { nt42finished = true; };
                             });
@@ -336,7 +291,7 @@ namespace Tesina
                             nt40finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt40.Open(nt40Uri);
+                                nt40.Open(new Uri(currDir + @"..\..\sounds\a70.wav"));
                                 nt40.Play();
                                 nt40.MediaEnded += delegate { nt40finished = true; };
                             });
@@ -349,7 +304,7 @@ namespace Tesina
                             nt38finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt38.Open(nt38Uri);
+                                nt38.Open(new Uri(currDir + @"..\..\sounds\a68.wav"));
                                 nt38.Play();
                                 nt38.MediaEnded += delegate { nt38finished = true; };
                             });
@@ -368,7 +323,7 @@ namespace Tesina
                             nt36finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt36.Open(nt36Uri);
+                                nt36.Open(new Uri(currDir + @"..\..\sounds\a83.wav"));
                                 nt36.Play();
                                 nt36.MediaEnded += delegate { nt36finished = true; };
                             });
@@ -381,7 +336,7 @@ namespace Tesina
                             nt34finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt34.Open(nt34Uri);
+                                nt34.Open(new Uri(currDir + @"..\..\sounds\b80.wav"));
                                 nt34.Play();
                                 nt34.MediaEnded += delegate { nt34finished = true; };
                             });
@@ -394,7 +349,7 @@ namespace Tesina
                             nt32finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt32.Open(nt32Uri);
+                                nt32.Open(new Uri(currDir + @"..\..\sounds\b79.wav"));
                                 nt32.Play();
                                 nt32.MediaEnded += delegate { nt32finished = true; };
                             });
@@ -410,7 +365,7 @@ namespace Tesina
                             nt30finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt30.Open(nt30Uri);
+                                nt30.Open(new Uri(currDir + @"..\..\sounds\b73.wav"));
                                 nt30.Play();
                                 nt30.MediaEnded += delegate { nt30finished = true; };
                             });
@@ -423,7 +378,7 @@ namespace Tesina
                             nt28finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt28.Open(nt28Uri);
+                                nt28.Open(new Uri(currDir + @"..\..\sounds\a85.wav"));
                                 nt28.Play();
                                 nt28.MediaEnded += delegate { nt28finished = true; };
                             });
@@ -436,7 +391,7 @@ namespace Tesina
                             nt26finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt26.Open(nt26Uri);
+                                nt26.Open(new Uri(currDir + @"..\..\sounds\a89.wav"));
                                 nt26.Play();
                                 nt26.MediaEnded += delegate { nt26finished = true; };
                             });
@@ -450,7 +405,7 @@ namespace Tesina
                         nt24finished = false;
                         this.Dispatcher.Invoke(() =>
                         {
-                            nt24.Open(nt24Uri);
+                            nt24.Open(new Uri(currDir + @"..\..\sounds\a84.wav"));
                             nt24.Play();
                             nt24.MediaEnded += delegate { nt24finished = true; };
                         });
@@ -468,7 +423,7 @@ namespace Tesina
                             nt22finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt22.Open(nt22Uri);
+                                nt22.Open(new Uri(currDir + @"..\..\sounds\b69.wav"));
                                 nt22.Play();
                                 nt22.MediaEnded += delegate { nt22finished = true; };
                             });
@@ -481,7 +436,7 @@ namespace Tesina
                             nt20finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt20.Open(nt20Uri);
+                                nt20.Open(new Uri(currDir + @"..\..\sounds\b87.wav"));
                                 nt20.Play();
                                 nt20.MediaEnded += delegate { nt20finished = true; };
                             });
@@ -494,7 +449,7 @@ namespace Tesina
                             nt18finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt18.Open(nt18Uri);
+                                nt18.Open(new Uri(currDir + @"..\..\sounds\b81.wav"));
                                 nt18.Play();
                                 nt18.MediaEnded += delegate { nt18finished = true; };
                             });
@@ -510,7 +465,7 @@ namespace Tesina
                             nt16finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt16.Open(nt16Uri);
+                                nt16.Open(new Uri(currDir + @"..\..\sounds\a48.wav"));
                                 nt16.Play();
                                 nt16.MediaEnded += delegate { nt16finished = true; };
                             });
@@ -523,7 +478,7 @@ namespace Tesina
                             nt14finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt14.Open(nt14Uri);
+                                nt14.Open(new Uri(currDir + @"..\..\sounds\b56.wav"));
                                 nt14.Play();
                                 nt14.MediaEnded += delegate { nt14finished = true; };
                             });
@@ -551,7 +506,7 @@ namespace Tesina
                             nt45finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt45.Open(nt45Uri);
+                                nt45.Open(new Uri(currDir + @"..\..\sounds\a74.wav"));
                                 nt45.Play();
                                 nt45.MediaEnded += delegate { nt45finished = true; };
                             });
@@ -564,7 +519,7 @@ namespace Tesina
                             nt43finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt43.Open(nt43Uri);
+                                nt43.Open(new Uri(currDir + @"..\..\sounds\a72.wav"));
                                 nt43.Play();
                                 nt43.MediaEnded += delegate { nt43finished = true; };
                             });
@@ -577,7 +532,7 @@ namespace Tesina
                             nt41finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt41.Open(nt41Uri);
+                                nt41.Open(new Uri(currDir + @"..\..\sounds\a71.wav"));
                                 nt41.Play();
                                 nt41.MediaEnded += delegate { nt41finished = true; };
                             });
@@ -593,7 +548,7 @@ namespace Tesina
                             nt39finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt39.Open(nt39Uri);
+                                nt39.Open(new Uri(currDir + @"..\..\sounds\b68.wav"));
                                 nt39.Play();
                                 nt39.MediaEnded += delegate { nt39finished = true; };
                             });
@@ -606,7 +561,7 @@ namespace Tesina
                             nt37finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt37.Open(nt37Uri);
+                                nt37.Open(new Uri(currDir + @"..\..\sounds\b83.wav"));
                                 nt37.Play();
                                 nt37.MediaEnded += delegate { nt37finished = true; };
                             });
@@ -625,7 +580,7 @@ namespace Tesina
                             nt35finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt35.Open(nt35Uri);
+                                nt35.Open(new Uri(currDir + @"..\..\sounds\a65.wav"));
                                 nt35.Play();
                                 nt35.MediaEnded += delegate { nt35finished = true; };
                             });
@@ -638,7 +593,7 @@ namespace Tesina
                             nt33finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt33.Open(nt33Uri);
+                                nt33.Open(new Uri(currDir + @"..\..\sounds\a80.wav"));
                                 nt33.Play();
                                 nt33.MediaEnded += delegate { nt33finished = true; };
                             });
@@ -651,7 +606,7 @@ namespace Tesina
                             nt31finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt31.Open(nt31Uri);
+                                nt31.Open(new Uri(currDir + @"..\..\sounds\a79.wav"));
                                 nt31.Play();
                                 nt31.MediaEnded += delegate { nt31finished = true; };
                             });
@@ -667,7 +622,7 @@ namespace Tesina
                             nt29finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt29.Open(nt29Uri);
+                                nt29.Open(new Uri(currDir + @"..\..\sounds\a73.wav"));
                                 nt29.Play();
                                 nt29.MediaEnded += delegate { nt29finished = true; };
                             });
@@ -680,7 +635,7 @@ namespace Tesina
                             nt27finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt27.Open(nt27Uri);
+                                nt27.Open(new Uri(currDir + @"..\..\sounds\b89.wav"));
                                 nt27.Play();
                                 nt27.MediaEnded += delegate { nt27finished = true; };
                             });
@@ -693,7 +648,7 @@ namespace Tesina
                             nt25finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt25.Open(nt25Uri);
+                                nt25.Open(new Uri(currDir + @"..\..\sounds\b84.wav"));
                                 nt25.Play();
                                 nt25.MediaEnded += delegate { nt25finished = true; };
                             });
@@ -707,7 +662,7 @@ namespace Tesina
                         nt23finished = false;
                         this.Dispatcher.Invoke(() =>
                         {
-                            nt23.Open(nt23Uri);
+                            nt23.Open(new Uri(currDir + @"..\..\sounds\a82.wav"));
                             nt23.Play();
                             nt23.MediaEnded += delegate { nt23finished = true; };
                         });
@@ -725,7 +680,7 @@ namespace Tesina
                             nt21finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt21.Open(nt21Uri);
+                                nt21.Open(new Uri(currDir + @"..\..\sounds\a69.wav"));
                                 nt21.Play();
                                 nt21.MediaEnded += delegate { nt21finished = true; };
                             });
@@ -738,7 +693,7 @@ namespace Tesina
                             nt19finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt19.Open(nt19Uri);
+                                nt19.Open(new Uri(currDir + @"..\..\sounds\a87.wav"));
                                 nt19.Play();
                                 nt19.MediaEnded += delegate { nt19finished = true; };
                             });
@@ -751,7 +706,7 @@ namespace Tesina
                             nt17finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt17.Open(nt17Uri);
+                                nt17.Open(new Uri(currDir + @"..\..\sounds\a81.wav"));
                                 nt17.Play();
                                 nt17.MediaEnded += delegate { nt17finished = true; };
                             });
@@ -767,7 +722,7 @@ namespace Tesina
                             nt15finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt15.Open(nt15Uri);
+                                nt15.Open(new Uri(currDir + @"..\..\sounds\a57.wav"));
                                 nt15.Play();
                                 nt15.MediaEnded += delegate { nt15finished = true; };
                             });
@@ -780,7 +735,7 @@ namespace Tesina
                             nt13finished = false;
                             this.Dispatcher.Invoke(() =>
                             {
-                                nt13.Open(nt13Uri);
+                                nt13.MediaEnded += delegate { nt13finished = true; };
                                 nt13.Play();
                                 nt13.MediaEnded += delegate { nt13finished = true; };
                             });
@@ -804,7 +759,7 @@ namespace Tesina
                         nt12finished = false;
                         this.Dispatcher.Invoke(() =>
                         {
-                            nt12.Open(nt12Uri);
+                            nt12.Open(new Uri(currDir + @"..\..\sounds\a55.wav"));
                             nt12.Play();
                             nt12.MediaEnded += delegate { nt12finished = true; };
                         });
@@ -817,7 +772,7 @@ namespace Tesina
                         nt10finished = false;
                         this.Dispatcher.Invoke(() =>
                         {
-                            nt10.Open(nt10Uri);
+                            nt10.Open(new Uri(currDir + @"..\..\sounds\a54.wav"));
                             nt10.Play();
                             nt10.MediaEnded += delegate { nt10finished = true; };
                         });
@@ -830,7 +785,7 @@ namespace Tesina
                         nt8finished = false;
                         this.Dispatcher.Invoke(() =>
                         {
-                            nt8.Open(nt8Uri);
+                            nt8.Open(new Uri(currDir + @"..\..\sounds\a53.wav"));
                             nt8.Play();
                             nt8.MediaEnded += delegate { nt8finished = true; };
                         });
@@ -846,7 +801,7 @@ namespace Tesina
                         nt6finished = false;
                         this.Dispatcher.Invoke(() =>
                         {
-                            nt6.Open(nt6Uri);
+                            nt6.Open(new Uri(currDir + @"..\..\sounds\a52.wav"));
                             nt6.Play();
                             nt6.MediaEnded += delegate { nt6finished = true; };
                         });
@@ -859,7 +814,7 @@ namespace Tesina
                         nt4finished = false;
                         this.Dispatcher.Invoke(() =>
                         {
-                            nt4.Open(nt4Uri);
+                            nt4.Open(new Uri(currDir + @"..\..\sounds\b50.wav"));
                             nt4.Play();
                             nt4.MediaEnded += delegate { nt4finished = true; };
                         });
@@ -872,7 +827,7 @@ namespace Tesina
                         nt2finished = false;
                         this.Dispatcher.Invoke(() =>
                         {
-                            nt2.Open(nt2Uri);
+                            nt2.Open(new Uri(currDir + @"..\..\sounds\b49.wav"));
                             nt2.Play();
                             nt2.MediaEnded += delegate { nt2finished = true; };
                         });
@@ -895,7 +850,7 @@ namespace Tesina
                         nt11finished = false;
                         this.Dispatcher.Invoke(() =>
                         {
-                            nt11.Open(nt11Uri);
+                            nt11.Open(new Uri(currDir + @"..\..\sounds\b54.wav"));
                             nt11.Play();
                             nt11.MediaEnded += delegate { nt11finished = true; };
                         });
@@ -908,7 +863,7 @@ namespace Tesina
                         nt9finished = false;
                         this.Dispatcher.Invoke(() =>
                         {
-                            nt9.Open(nt9Uri);
+                            nt9.Open(new Uri(currDir + @"..\..\sounds\b53.wav"));
                             nt9.Play();
                             nt9.MediaEnded += delegate { nt9finished = true; };
                         });
@@ -921,7 +876,7 @@ namespace Tesina
                         nt7finished = false;
                         this.Dispatcher.Invoke(() =>
                         {
-                            nt7.Open(nt7Uri);
+                            nt7.Open(new Uri(currDir + @"..\..\sounds\b52.wav"));
                             nt7.Play();
                             nt7.MediaEnded += delegate { nt7finished = true; };
                         });
@@ -937,7 +892,7 @@ namespace Tesina
                         nt5finished = false;
                         this.Dispatcher.Invoke(() =>
                         {
-                            nt5.Open(nt5Uri);
+                            nt5.Open(new Uri(currDir + @"..\..\sounds\a51.wav"));
                             nt5.Play();
                             nt5.MediaEnded += delegate { nt5finished = true; };
                         });
@@ -950,7 +905,7 @@ namespace Tesina
                         nt3finished = false;
                         this.Dispatcher.Invoke(() =>
                         {
-                            nt3.Open(nt3Uri);
+                            nt3.Open(new Uri(currDir + @"..\..\sounds\a50.wav"));
                             nt3.Play();
                             nt3.MediaEnded += delegate { nt3finished = true; };
                         });
@@ -963,7 +918,7 @@ namespace Tesina
                         nt1finished = false;
                         this.Dispatcher.Invoke(() =>
                         {
-                            nt1.Open(nt1Uri);
+                            nt1.Open(new Uri(currDir + @"..\..\sounds\a49.wav"));
                             nt1.Play();
                             nt1.MediaEnded += delegate { nt1finished = true; };
                         });
