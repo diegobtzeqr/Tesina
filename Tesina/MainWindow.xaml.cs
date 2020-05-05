@@ -68,6 +68,7 @@ namespace Tesina
         private static Uri nt45Uri = new Uri(currDir + @"..\..\sounds\a74.wav");
         private static Uri nt46Uri = new Uri(currDir + @"..\..\sounds\b74.wav");
         private static Uri nt47Uri = new Uri(currDir + @"..\..\sounds\a75.wav");
+        private static Uri nt48Uri = new Uri(currDir + @"..\..\sounds\a76.wav");
         
         // Media player for each note.
         private MediaPlayer solfeggio = new MediaPlayer();
@@ -118,6 +119,7 @@ namespace Tesina
         private MediaPlayer nt45 = new MediaPlayer();
         private MediaPlayer nt46 = new MediaPlayer();
         private MediaPlayer nt47 = new MediaPlayer();
+        private MediaPlayer nt48 = new MediaPlayer();
 
         // Flags for each note, to know if that note has finished playing
         private bool solfeggioFinished = true;
@@ -168,6 +170,7 @@ namespace Tesina
         private bool nt45Finished = true;
         private bool nt46Finished = true;
         private bool nt47Finished = true;
+        private bool nt48Finished = true;
 
         public MainWindow()
         {
@@ -223,6 +226,7 @@ namespace Tesina
             nt45.Volume = volumeLevel;
             nt46.Volume = volumeLevel;
             nt47.Volume = volumeLevel;
+            nt48.Volume = volumeLevel;
         }
 
         private void MainWindowLoaded(object sender, RoutedEventArgs e)
@@ -362,6 +366,7 @@ namespace Tesina
                     nt45.Stop();
                     nt46.Stop();
                     nt47.Stop();
+                    nt48.Stop();
                 });
 
                 return;
@@ -382,14 +387,14 @@ namespace Tesina
 
             if (leftArmDistToHipY > 0.8 || rightArmDistToHipY > 0.8)
             {
-                if (nt47Finished)
+                if (nt48Finished)
                 {
-                    nt47Finished = false;
+                    nt48Finished = false;
                     this.Dispatcher.Invoke(() =>
                     {
-                        nt47.Open(nt47Uri);
-                        nt47.Play();
-                        nt47.MediaEnded += delegate { nt47Finished = true; };
+                        nt48.Open(nt48Uri);
+                        nt48.Play();
+                        nt48.MediaEnded += delegate { nt48Finished = true; };
                     });
                 }
             }
@@ -407,18 +412,15 @@ namespace Tesina
                 }
             }
 
-            soundsLeftArm(Math.Abs(leftHand.Position.X - leftShoulder.Position.X), Math.Abs(leftHand.Position.Y - leftShoulder.Position.Y),
-                          Math.Abs(leftHand.Position.Z - leftShoulder.Position.Z), leftArmDistToHipY);
-            soundsRightArm(Math.Abs(rightHand.Position.X - rightShoulder.Position.X), Math.Abs(rightHand.Position.Y - rightShoulder.Position.Y),
-                           Math.Abs(rightHand.Position.Z - rightShoulder.Position.Z), rightArmDistToHipY);
+            soundsLeftArm(Math.Abs(leftHand.Position.X - leftShoulder.Position.X), Math.Abs(leftHand.Position.Z - leftShoulder.Position.Z), leftArmDistToHipY);
+            soundsRightArm(Math.Abs(rightHand.Position.X - rightShoulder.Position.X), Math.Abs(rightHand.Position.Z - rightShoulder.Position.Z), rightArmDistToHipY);
             soundsLeftLeg(Math.Abs(leftAnkle.Position.X - leftHip.Position.X), Math.Abs(leftAnkle.Position.Y - leftHip.Position.Y));
             soundsRightLeg(Math.Abs(rightAnkle.Position.X - rightHip.Position.X), Math.Abs(rightAnkle.Position.Y - rightHip.Position.Y));
         }
 
-        private void soundsLeftArm(float distToShoulderX, float distToShoulderY, float distToShoulderZ, float distToHipY)
+        private void soundsLeftArm(float distToShoulderX, float distToShoulderZ, float distToHipY)
         {
             /*XValueLeftWristToShoulder.Text = distToShoulderX.ToString(CultureInfo.InvariantCulture).Substring(0,5);
-            YValueLeftWristToShoulder.Text = distToShoulderY.ToString(CultureInfo.InvariantCulture).Substring(0,5);
             ZValueLeftWristToShoulder.Text = distToShoulderZ.ToString(CultureInfo.InvariantCulture).Substring(0,5);
             YValueLeftWristToHip.Text = distToHipY.ToString(CultureInfo.InvariantCulture).Substring(0,5);*/
 
@@ -672,10 +674,9 @@ namespace Tesina
             }
         }
 
-        private void soundsRightArm(float distToShoulderX, float distToShoulderY, float distToShoulderZ, float distToHipY)
+        private void soundsRightArm(float distToShoulderX, float distToShoulderZ, float distToHipY)
         {
             /*XValueRightWristToShoulder.Text = distToShoulderX.ToString(CultureInfo.InvariantCulture).Substring(0,5);
-            YValueRightWristToShoulder.Text = distToShoulderY.ToString(CultureInfo.InvariantCulture).Substring(0,5);
             ZValueRightWristToShoulder.Text = distToShoulderZ.ToString(CultureInfo.InvariantCulture).Substring(0,5);
             YValueRightWristToHip.Text = distToHipY.ToString(CultureInfo.InvariantCulture).Substring(0,5);*/
 
@@ -684,6 +685,19 @@ namespace Tesina
                 if (distToShoulderZ < 0.25)
                 {
                     if (distToShoulderX < 0.16)
+                    {
+                        if (nt47Finished)
+                        {
+                            nt47Finished = false;
+                            this.Dispatcher.Invoke(() =>
+                            {
+                                nt47.Open(nt47Uri);
+                                nt47.Play();
+                                nt47.MediaEnded += delegate { nt47Finished = true; };
+                            });
+                        }
+                    }
+                    else if (distToShoulderX < 0.32)
                     {
                         if (nt45Finished)
                         {
@@ -696,7 +710,7 @@ namespace Tesina
                             });
                         }
                     }
-                    else if (distToShoulderX < 0.32)
+                    else
                     {
                         if (nt43Finished)
                         {
@@ -709,7 +723,10 @@ namespace Tesina
                             });
                         }
                     }
-                    else
+                }
+                else
+                {
+                    if (distToShoulderX < 0.25)
                     {
                         if (nt41Finished)
                         {
@@ -721,11 +738,9 @@ namespace Tesina
                                 nt41.MediaEnded += delegate { nt41Finished = true; };
                             });
                         }
+                        
                     }
-                }
-                else
-                {
-                    if (distToShoulderX < 0.25)
+                    else
                     {
                         if (nt39Finished)
                         {
@@ -738,7 +753,13 @@ namespace Tesina
                             });
                         }
                     }
-                    else
+                }
+            }
+            else if (distToHipY > 0.3)
+            {
+                if (distToShoulderZ < 0.25)
+                {
+                    if (distToShoulderX < 0.175)
                     {
                         if (nt37Finished)
                         {
@@ -751,13 +772,7 @@ namespace Tesina
                             });
                         }
                     }
-                }
-            }
-            else if (distToHipY > 0.3)
-            {
-                if (distToShoulderZ < 0.25)
-                {
-                    if (distToShoulderX < 0.175)
+                    else if (distToShoulderX < 0.35)
                     {
                         if (nt35Finished)
                         {
@@ -770,7 +785,7 @@ namespace Tesina
                             });
                         }
                     }
-                    else if (distToShoulderX < 0.35)
+                    else
                     {
                         if (nt33Finished)
                         {
@@ -783,7 +798,10 @@ namespace Tesina
                             });
                         }
                     }
-                    else
+                }
+                else if (distToShoulderZ < 0.42)
+                {
+                    if (distToShoulderX < 0.175)
                     {
                         if (nt31Finished)
                         {
@@ -796,10 +814,7 @@ namespace Tesina
                             });
                         }
                     }
-                }
-                else if (distToShoulderZ < 0.42)
-                {
-                    if (distToShoulderX < 0.175)
+                    else if (distToShoulderX < 0.35)
                     {
                         if (nt29Finished)
                         {
@@ -812,7 +827,7 @@ namespace Tesina
                             });
                         }
                     }
-                    else if (distToShoulderX < 0.35)
+                    else
                     {
                         if (nt27Finished)
                         {
@@ -825,30 +840,17 @@ namespace Tesina
                             });
                         }
                     }
-                    else
-                    {
-                        if (nt25Finished)
-                        {
-                            nt25Finished = false;
-                            this.Dispatcher.Invoke(() =>
-                            {
-                                nt25.Open(nt25Uri);
-                                nt25.Play();
-                                nt25.MediaEnded += delegate { nt25Finished = true; };
-                            });
-                        }
-                    }
                 }
                 else
                 {
-                    if (nt23Finished)
+                    if (nt25Finished)
                     {
-                        nt23Finished = false;
+                        nt25Finished = false;
                         this.Dispatcher.Invoke(() =>
                         {
-                            nt23.Open(nt23Uri);
-                            nt23.Play();
-                            nt23.MediaEnded += delegate { nt23Finished = true; };
+                            nt25.Open(nt25Uri);
+                            nt25.Play();
+                            nt25.MediaEnded += delegate { nt25Finished = true; };
                         });
                     }
                 }
@@ -858,6 +860,19 @@ namespace Tesina
                 if (distToShoulderZ < 0.25)
                 {
                     if (distToShoulderX < 0.175)
+                    {
+                        if (nt23Finished)
+                        {
+                            nt23Finished = false;
+                            this.Dispatcher.Invoke(() =>
+                            {
+                                nt23.Open(nt23Uri);
+                                nt23.Play();
+                                nt23.MediaEnded += delegate { nt23Finished = true; };
+                            });
+                        }
+                    }
+                    else if (distToShoulderX < 0.35)
                     {
                         if (nt21Finished)
                         {
@@ -870,7 +885,7 @@ namespace Tesina
                             });
                         }
                     }
-                    else if (distToShoulderX < 0.35)
+                    else
                     {
                         if (nt19Finished)
                         {
@@ -883,7 +898,10 @@ namespace Tesina
                             });
                         }
                     }
-                    else
+                }
+                else
+                {
+                    if (distToShoulderX < 0.25)
                     {
                         if (nt17Finished)
                         {
@@ -896,10 +914,7 @@ namespace Tesina
                             });
                         }
                     }
-                }
-                else
-                {
-                    if (distToShoulderX < 0.25)
+                    else
                     {
                         if (nt15Finished)
                         {
@@ -912,19 +927,6 @@ namespace Tesina
                             });
                         }
                     }
-                    else
-                    {
-                        if (nt13Finished)
-                        {
-                            nt13Finished = false;
-                            this.Dispatcher.Invoke(() =>
-                            {
-                                nt13.Open(nt13Uri);
-                                nt13.Play();
-                                nt13.MediaEnded += delegate { nt13Finished = true; };
-                            });
-                        }
-                    }
                 }
             }
         }
@@ -934,7 +936,7 @@ namespace Tesina
             /*XValueLeftAnkleToHip.Text = distToHipX.ToString(CultureInfo.InvariantCulture).Substring(0,5);
             YValueLeftAnkleToHip.Text = distToHipY.ToString(CultureInfo.InvariantCulture).Substring(0,5);*/
 
-            if (distToHipY < 0.5)
+            if (distToHipY < 0.4)
             {
                 if (distToHipX < 0.18)
                 {
@@ -976,7 +978,7 @@ namespace Tesina
                     }
                 }
             }
-            else if (distToHipY < 0.4)
+            else if (distToHipY <= 0.5)
             {
                 if (distToHipX < 0.18)
                 {
@@ -1025,7 +1027,7 @@ namespace Tesina
             /*XValueRightAnkleToHip.Text = distToHipX.ToString(CultureInfo.InvariantCulture).Substring(0,5);
             YValueRightAnkleToHip.Text = distToHipY.ToString(CultureInfo.InvariantCulture).Substring(0,5);*/
 
-            if (distToHipY < 0.5)
+            if (distToHipY < 0.4)
             {
                 if (distToHipX < 0.18)
                 {
@@ -1067,7 +1069,7 @@ namespace Tesina
                     }
                 }
             }
-            else if (distToHipY < 0.4)
+            else if (distToHipY <= 0.5)
             {
                 if (distToHipX < 0.18)
                 {
