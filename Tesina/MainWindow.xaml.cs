@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
@@ -12,13 +13,16 @@ namespace Tesina
     /// </summary>
     public partial class MainWindow : Window
     {
-        // Volume level constant, range is 0 - 1.
+        /// Debug flag
+        private bool debug = false;
+
+        /// Volume level constant, range is 0 - 1.
         private static double volumeLevel = 1.0;
 
-        // Kinect sensor
+        /// Kinect sensor
         private KinectSensor sensor;
 
-        // Files with the piano note sound
+        /// Files with the piano note sound
         private static string currDir = AppDomain.CurrentDomain.BaseDirectory;
         private static Uri solfeggioUri = new Uri(currDir + @"..\..\sounds\solfeggio-528.mp3");
         private static Uri nt01Uri = new Uri(currDir + @"..\..\sounds\a49.wav");
@@ -69,8 +73,8 @@ namespace Tesina
         private static Uri nt46Uri = new Uri(currDir + @"..\..\sounds\b74.wav");
         private static Uri nt47Uri = new Uri(currDir + @"..\..\sounds\a75.wav");
         private static Uri nt48Uri = new Uri(currDir + @"..\..\sounds\a76.wav");
-        
-        // Media player for each note.
+
+        /// Media player for each note.
         private MediaPlayer solfeggio = new MediaPlayer();
         private MediaPlayer nt01 = new MediaPlayer();
         private MediaPlayer nt02 = new MediaPlayer();
@@ -121,7 +125,7 @@ namespace Tesina
         private MediaPlayer nt47 = new MediaPlayer();
         private MediaPlayer nt48 = new MediaPlayer();
 
-        // Flags for each note, to know if that note has finished playing
+        /// Flags for each note, to know if that note has finished playing
         private bool solfeggioFinished = true;
         private bool nt01Finished = true;
         private bool nt02Finished = true;
@@ -177,7 +181,32 @@ namespace Tesina
             InitializeComponent();
             Loaded += MainWindowLoaded;
 
-            // Set max volume to each media player (the range is 0 - 1)
+            if (debug)
+            {
+                LeftWristToShoulder.Text = "Left Wrist to Shoulder";
+                XLeftWristToShoulder.Text = "X:";
+                ZLeftWristToShoulder.Text = "Z:";
+
+                LeftWristToHip.Text = "Left Wrist to Hip";
+                YLeftWristToHip.Text = "Y:";
+
+                LeftAnkleToHip.Text = "Left Ankle to Hip";
+                XLeftAnkleToHip.Text = "X:";
+                YLeftAnkleToHip.Text = "Y:";
+
+                RightWristToShoulder.Text = "Right Wrist to Shoulder";
+                XRightWristToShoulder.Text = "X:";
+                ZRightWristToShoulder.Text = "Z:";
+
+                RightWristToHip.Text = "Right Wrist to Hip";
+                YRightWristToHip.Text = "Y:";
+
+                RightAnkleToHip.Text = "Right Ankle to Hip";
+                XRightAnkleToHip.Text = "X:";
+                YRightAnkleToHip.Text = "Y:";
+            }
+
+            /// Set max volume to each media player (the range is 0 - 1)
             solfeggio.Volume = volumeLevel;
             nt01.Volume = volumeLevel;
             nt02.Volume = volumeLevel;
@@ -293,7 +322,7 @@ namespace Tesina
                 }
             }
 
-            if (skeletons.Length == 0) 
+            if (skeletons.Length == 0)
             {
                 return;
             }
@@ -420,9 +449,12 @@ namespace Tesina
 
         private void soundsLeftArm(float distToShoulderX, float distToShoulderZ, float distToHipY)
         {
-            /*XValueLeftWristToShoulder.Text = distToShoulderX.ToString(CultureInfo.InvariantCulture).Substring(0,5);
-            ZValueLeftWristToShoulder.Text = distToShoulderZ.ToString(CultureInfo.InvariantCulture).Substring(0,5);
-            YValueLeftWristToHip.Text = distToHipY.ToString(CultureInfo.InvariantCulture).Substring(0,5);*/
+            if (debug)
+            {
+                XValueLeftWristToShoulder.Text = distToShoulderX.ToString(CultureInfo.InvariantCulture).Substring(0, 5);
+                ZValueLeftWristToShoulder.Text = distToShoulderZ.ToString(CultureInfo.InvariantCulture).Substring(0, 5);
+                YValueLeftWristToHip.Text = distToHipY.ToString(CultureInfo.InvariantCulture).Substring(0, 5);
+            }
 
             if (distToHipY > 0.6)
             {
@@ -676,9 +708,12 @@ namespace Tesina
 
         private void soundsRightArm(float distToShoulderX, float distToShoulderZ, float distToHipY)
         {
-            /*XValueRightWristToShoulder.Text = distToShoulderX.ToString(CultureInfo.InvariantCulture).Substring(0,5);
-            ZValueRightWristToShoulder.Text = distToShoulderZ.ToString(CultureInfo.InvariantCulture).Substring(0,5);
-            YValueRightWristToHip.Text = distToHipY.ToString(CultureInfo.InvariantCulture).Substring(0,5);*/
+            if (debug)
+            {
+                XValueRightWristToShoulder.Text = distToShoulderX.ToString(CultureInfo.InvariantCulture).Substring(0, 5);
+                ZValueRightWristToShoulder.Text = distToShoulderZ.ToString(CultureInfo.InvariantCulture).Substring(0, 5);
+                YValueRightWristToHip.Text = distToHipY.ToString(CultureInfo.InvariantCulture).Substring(0, 5);
+            }
 
             if (distToHipY > 0.6)
             {
@@ -738,7 +773,7 @@ namespace Tesina
                                 nt41.MediaEnded += delegate { nt41Finished = true; };
                             });
                         }
-                        
+
                     }
                     else
                     {
@@ -933,8 +968,11 @@ namespace Tesina
 
         private void soundsLeftLeg(float distToHipX, float distToHipY)
         {
-            /*XValueLeftAnkleToHip.Text = distToHipX.ToString(CultureInfo.InvariantCulture).Substring(0,5);
-            YValueLeftAnkleToHip.Text = distToHipY.ToString(CultureInfo.InvariantCulture).Substring(0,5);*/
+            if (debug)
+            {
+                XValueLeftAnkleToHip.Text = distToHipX.ToString(CultureInfo.InvariantCulture).Substring(0, 5);
+                YValueLeftAnkleToHip.Text = distToHipY.ToString(CultureInfo.InvariantCulture).Substring(0, 5);
+            }
 
             if (distToHipY < 0.4)
             {
@@ -1024,8 +1062,11 @@ namespace Tesina
 
         private void soundsRightLeg(float distToHipX, float distToHipY)
         {
-            /*XValueRightAnkleToHip.Text = distToHipX.ToString(CultureInfo.InvariantCulture).Substring(0,5);
-            YValueRightAnkleToHip.Text = distToHipY.ToString(CultureInfo.InvariantCulture).Substring(0,5);*/
+            if (debug)
+            {
+                XValueRightAnkleToHip.Text = distToHipX.ToString(CultureInfo.InvariantCulture).Substring(0, 5);
+                YValueRightAnkleToHip.Text = distToHipY.ToString(CultureInfo.InvariantCulture).Substring(0, 5);
+            }
 
             if (distToHipY < 0.4)
             {
