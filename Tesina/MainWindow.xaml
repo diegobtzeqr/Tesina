@@ -25,9 +25,9 @@
         <TextBlock x:Name="YLeftWristToHip" HorizontalAlignment="Left" Margin="10,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
 
         <TextBlock x:Name="LeftAnkleToHip" HorizontalAlignment="Left" Margin="10,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
-        <TextBlock x:Name="XValueLeftAnkleToHip" HorizontalAlignment="Left" Margin="10,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="XValueLeftAnkleToHip" HorizontalAlignment="Left" Margin="40,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
         <TextBlock x:Name="XLeftAnkleToHip" HorizontalAlignment="Left" Margin="10,250,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
-        <TextBlock x:Name="YValueLeftAnkleToHip" HorizontalAlignment="Left" Margin="10,285,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
+        <TextBlock x:Name="YValueLeftAnkleToHip" HorizontalAlignment="Left" Margin="40,285,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
         <TextBlock x:Name="YLeftAnkleToHip" HorizontalAlignment="Left" Margin="10,285,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
 
         <TextBlock x:Name="RightWristToShoulder" HorizontalAlignment="Left" Margin="380,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="30"/>
